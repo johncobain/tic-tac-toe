@@ -16,7 +16,9 @@
             <h1>Tic Tac Toe</h1>
         </header>
         <main>
-            <div class="player-display"><br></div>
+            <div class="scoreboard-text">Scoreboard:</div>
+            <div class="scoreboard"></div>
+            <div class="player-display"></div>
             <table>
                 <tr>
                     <td class="square" id="square1" data-value=""></td>
@@ -35,7 +37,10 @@
                 </tr>
             </table>
             <div class="res"></div>
-            <button onclick="restartGame()" class="restart">Restart Game</button>
+            <div class="game-buttons">
+                <button onclick="restartGame()" class="restart">New Game</button>
+                <button class="play-again ">Play Again</button>
+            </div>
         </main>
         <footer>
             Created by <a target="_blank" href="https://github.com/johncobain">Andrey Gomes</a> | 2024

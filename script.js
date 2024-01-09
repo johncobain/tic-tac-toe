@@ -1,8 +1,11 @@
 let player1 = '';
 let player2 = '';
+let player1Score = 0;
+let player2Score = 0;
 let actualPlayer = 'x';
 let table = ['','','','','','','','',''];
 
+const scoreboard = document.querySelector('.scoreboard');
 const playerDisplay = document.querySelector('.player-display');
 const squares = document.querySelectorAll('.square');
 const res = document.querySelector('.res');
@@ -22,16 +25,22 @@ function restartGame(){
     actualPlayer = 'x';
     table =  ['','','','','','','','',''];
     clearTable();
+    scoreboard.textContent = '';
     res.textContent = '';
     alert('Game restarted');
     playerNames();
     displayName();
+    displayScore();
     startGame();
 }
 
 function playerNames(){
     player1 = prompt('Type the name of the (X) Player')+' - X';
     player2 = prompt('Type the name of the (O) Player')+' - O';
+}
+
+function displayScore(){
+    scoreboard.textContent += `${player1.slice(0, -4)} = ${player1Score} pts. | ${player2.slice(0,-4)} = ${player2Score} pts.`
 }
 
 function displayName(){
@@ -69,7 +78,15 @@ function winGame(playerWon){
         square.removeEventListener('click', gameEvent);
     });
     if(playerWon){
-        let playerName = playerWon==='x'?player1:player2;
+        let playerName;
+
+        if(playerWon === 'x'){
+            playerName = player1;
+            player1Score+=1;
+        }else{
+            playerName = player2;
+            player2Score+=1;
+        }
         res.textContent = 'Player '+playerName+ ' WON!';
     }else{
         squares.forEach(square=>square.classList.add('draw'))
@@ -104,4 +121,5 @@ function startGame(){
 
 playerNames();
 displayName();
+displayScore();
 startGame();
