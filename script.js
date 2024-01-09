@@ -10,7 +10,34 @@ const playerDisplay = document.querySelector('.player-display');
 const squares = document.querySelectorAll('.square');
 const res = document.querySelector('.res');
 
+const playAgainBtn = document.querySelector('.play-again');
+playAgainBtn.classList.add('disabled');
+playAgainBtn.addEventListener('click', ()=>{
+    if(!playAgainBtn.classList.contains('disabled')){
+        clearTable();
+        displayName();
+        displayScore();
+        startGame();
+    }else{
+        console.log('STOP!😡😡😡');
+    }
+})
+
+function restartGame(){
+    player1 = '';
+    player2 = '';
+    player1Score = 0;
+    player2Score = 0;
+    scoreboard.textContent = '';
+    alert('Game restarted');
+    clearTable();
+    playerNames();
+    displayName();
+    displayScore();
+    startGame();
+}
 function clearTable(){
+    table =  ['','','','','','','','',''];
     squares.forEach(square=>{
         square.textContent = '';
         square.dataset.value = '';
@@ -19,28 +46,13 @@ function clearTable(){
     })
 }
 
-function restartGame(){
-    player1 = '';
-    player2 = '';
-    actualPlayer = 'x';
-    table =  ['','','','','','','','',''];
-    clearTable();
-    scoreboard.textContent = '';
-    res.textContent = '';
-    alert('Game restarted');
-    playerNames();
-    displayName();
-    displayScore();
-    startGame();
-}
-
 function playerNames(){
     player1 = prompt('Type the name of the (X) Player')+' - X';
     player2 = prompt('Type the name of the (O) Player')+' - O';
 }
 
 function displayScore(){
-    scoreboard.textContent += `${player1.slice(0, -4)} = ${player1Score} pts. | ${player2.slice(0,-4)} = ${player2Score} pts.`
+    scoreboard.textContent = `${player1.slice(0, -4)} = ${player1Score} pts. | ${player2.slice(0,-4)} = ${player2Score} pts.`
 }
 
 function displayName(){
@@ -92,6 +104,7 @@ function winGame(playerWon){
         squares.forEach(square=>square.classList.add('draw'))
         res.textContent = 'DRAW!'
     }
+    playAgainBtn.classList.remove('disabled');
 }
 
 function gameEvent(ev){
@@ -114,6 +127,9 @@ function gameEvent(ev){
 }
 
 function startGame(){
+    playAgainBtn.classList.add('disabled');
+    actualPlayer = 'x';
+    res.textContent = '';
     squares.forEach(square=>{
         square.addEventListener('click', gameEvent)
     })
