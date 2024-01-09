@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam&family=Short+Stack&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="src/tictactoe_icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tic Tac Toe</h1>
+        </header>
+        <main>
+            <div class="player-display"><br></div>
+            <table>
+                <tr>
+                    <td class="square" id="square1" data-value=""></td>
+                    <td class="square" id="square2" data-value=""></td>
+                    <td class="square" id="square3" data-value=""></td>
+                </tr>
+                <tr>
+                    <td class="square" id="square4" data-value=""></td>
+                    <td class="square" id="square5" data-value=""></td>
+                    <td class="square" id="square6" data-value=""></td>
+                </tr>
+                <tr>
+                    <td class="square" id="square7" data-value=""></td>
+                    <td class="square" id="square8" data-value=""></td>
+                    <td class="square" id="square9" data-value=""></td>
+                </tr>
+            </table>
+            <div class="res"></div>
+            <button onclick="restartGame()" class="restart">Restart Game</button>
+        </main>
+        <footer>
+            Created by <a href="https://github.com/johncobain">Andrey Gomes</a> | 2024
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --bg-color: #6D39C1;
+    --primary-color: #F5B4FF;
+    --secondary-color: #FF8066;
+    --terciary-color: #C34A36;
+    --active-color: #00C9A7;
+    --x-color: #1640D6;
+    --o-color: #ED5AB3;
+
+    --title-font: 'Short Stack', cursive;;
+    --text-font: 'Kalam', cursive;
+}
+
+body{
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    font-family: var(--text-font);
+}
+
+.container{
+    width: 80vw;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header h1{
+    font-family: var(--title-font);
+    font-size: 3rem;
+    text-shadow: 1px 1px 5px #000;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table{
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    box-shadow: 1px 1px 5px #000;
+}
+
+tr{
+    display: flex;
+    gap: 7px;
+    margin-bottom: 7px;
+}
+
+tr:nth-child(3){
+    margin-bottom: 0;
+}
+
+.square{
+    background-color: #e7e7e7;
+    border-radius: 4px;
+    width: 100px;
+    height: 100px;
+    transition: .5s;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.square:hover{
+    background-color: #fff;
+}
+
+.square.active{
+    background-color: var(--active-color);
+}
+.square.draw{
+    background-color: var(--terciary-color);
+}
+
+.square-icon{
+    width: 100%;
+}
+
+.player-display,.res{
+    height: 70px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px 5px #000;
+}
+
+.restart{
+    padding: 10px;
+    width: 60%;
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
+    font-family: var(--text-font);
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 1px 1px 5px #000;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.restart:hover{
+    background-color: var(--terciary-color);
+    color: var(--primary-color);
+}
+
+footer a{
+    color: var(--primary-color);
+}
